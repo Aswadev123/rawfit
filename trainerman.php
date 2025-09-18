@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['trainer_id'])) {
-    header("Location: login.php"); // Redirect to trainer login page
+    header("Location: trainerlogin.php"); // Redirect to trainer login page
     exit();
 }
 
