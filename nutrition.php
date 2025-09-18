@@ -122,6 +122,13 @@ $conn->close();
                         </svg>
                         <span>Trainers</span>
                     </a>
+                     <a href="display_gym.php" class="nav-link flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                            <path d="M12 18h.01"/>
+                        </svg>
+                        <span>Gyms</span>
+                    </a>
                 </div>
 
                 <!-- User Info -->
@@ -380,32 +387,7 @@ $conn->close();
                     </button>
                 </div>
                 <div class="space-y-4" id="foodLogList">
-                    <div class="flex items-center justify-between p-4 bg-gray-700/30 rounded-lg">
-                        <div>
-                            <h4 class="text-white font-medium">Breakfast</h4>
-                            <p class="text-gray-400 text-sm">420 cal • 25g protein • 45g carbs • 18g fat</p>
-                        </div>
-                        <button class="text-red-400 hover:text-red-300 transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                                <line x1="10" y1="11" x2="10" y2="17"/>
-                                <line x1="14" y1="11" x2="14" y2="17"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="flex items-center justify-between p-4 bg-gray-700/30 rounded-lg">
-                        <div>
-                            <h4 class="text-white font-medium">Lunch</h4>
-                            <p class="text-gray-400 text-sm">550 cal • 35g protein • 60g carbs • 22g fat</p>
-                        </div>
-                        <button class="text-red-400 hover:text-red-300 transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                                <line x1="10" y1="11" x2="10" y2="17"/>
-                                <line x1="14" y1="11" x2="14" y2="17"/>
-                            </svg>
-                        </button>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -907,29 +889,23 @@ function saveFoodLog() {
 }
 
         // Load food log from database
-        function loadFoodLog() {
+            function loadFoodLog() {
             fetch('load_food_log.php')
             .then(res => res.json())
             .then(data => {
                 if (data.success && data.foodLog) {
                     window.foodLog = data.foodLog;
                 } else {
-                    // Use default data if no saved data
-                    window.foodLog = [
-                        { name: 'Breakfast', calories: 420, protein: 25, carbs: 45, fats: 18 },
-                        { name: 'Lunch', calories: 550, protein: 35, carbs: 60, fats: 22 }
-                    ];
+                    // Initialize with empty array instead of default data
+                    window.foodLog = [];
                 }
                 updateFoodLogDisplay();
                 updateMacroProgress();
             })
             .catch(error => {
                 console.error('Error loading food log:', error);
-                // Use default data on error
-                window.foodLog = [
-                    { name: 'Breakfast', calories: 420, protein: 25, carbs: 45, fats: 18 },
-                    { name: 'Lunch', calories: 550, protein: 35, carbs: 60, fats: 22 }
-                ];
+                // Initialize with empty array on error
+                window.foodLog = [];
                 updateFoodLogDisplay();
                 updateMacroProgress();
             });

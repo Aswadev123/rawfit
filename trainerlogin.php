@@ -122,15 +122,16 @@ ob_end_flush();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RawFit - <?php echo ucfirst($action); ?></title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=M+PLUS+Rounded+1c:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+ <script src="https://cdn.tailwindcss.com"></script>
+
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 body { background-color: #000; }
 #auth { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
 .auth-container { background: #1A1F2E; border-radius: 20px; padding: 40px; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.auth-title { font-family: 'Orbitron', sans-serif; font-size: 32px; text-align: center; margin-bottom: 10px; color: #F97316; }
+.auth-title {  font-size: 32px; text-align: center; margin-bottom: 10px; color: #F97316; }
 label { display: block; margin-bottom: 6px; font-size: 14px; color: #FFFFFF; }
-input { width: 100%; padding: 10px; margin-bottom: 20px; border: none; border-radius: 8px; background: #2D2D2D; color: #FFFFFF; }
+input { width: 100%; padding: 20px; margin-bottom: 20px; border: none; border-radius: 20px; background: #2D2D2D; color: #FFFFFF; }
 .password-container {
     position: relative;
     display: flex;

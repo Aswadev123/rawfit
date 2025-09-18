@@ -98,20 +98,48 @@ $conn->close();
                     </a>
                 </div>
 
-                <!-- Navigation Actions -->
-        <div class="flex items-center space-x-4">
-    <a href="auth.php" class="text-gray-300 hover:text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">Login</a>
-    <a href="trainerlogin.php" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Trainer Login</a>
-    <a href="adminlogin.php" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Admin Login</a>
-    <a href="login_owner.php" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Gym Owner</a>
+        <!-- Navigation Actions -->
+                <div class="relative group">
+                    <button class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all flex items-center space-x-2 focus:outline-none">
+                        <span>Login and Register</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
 
-    <div class="md:hidden hamburger flex flex-col space-y-1 cursor-pointer" id="hamburger">
-        <span class="w-6 h-0.5 bg-gray-300"></span>
-        <span class="w-6 h-0.5 bg-gray-300"></span>
-        <span class="w-6 h-0.5 bg-gray-300"></span>
-    </div>
-</div>
+                    <div class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg opacity-0 invisible transition-all duration-300 group-hover:opacity-100 group-hover:visible z-10">
+                        <a href="auth.php" class="block text-gray-300 hover:text-white hover:bg-gray-700 text-sm font-medium px-4 py-2 rounded-lg">User Login</a>
+                        <a href="trainerlogin.php" class="block text-gray-300 hover:text-white hover:bg-gray-700 text-sm font-medium px-4 py-2 rounded-lg">Trainer Login</a>
+                        <a href="adminlogin.php" class="block text-gray-300 hover:text-white hover:bg-gray-700 text-sm font-medium px-4 py-2 rounded-lg">Admin Login</a>
+                        <a href="login_owner.php" class="block text-gray-300 hover:text-white hover:bg-gray-700 text-sm font-medium px-4 py-2 rounded-lg">Gym Owner</a>
+                    </div>
+                </div>
 
+                <!-- JavaScript for Mobile Toggle -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const button = document.querySelector('.relative button');
+                        const dropdown = document.querySelector('.absolute');
+
+                        button.addEventListener('click', function (e) {
+                            if (window.innerWidth <= 768) {
+                                e.preventDefault();
+                                dropdown.classList.toggle('opacity-0');
+                                dropdown.classList.toggle('invisible');
+                                dropdown.classList.toggle('opacity-100');
+                                dropdown.classList.toggle('visible');
+                            }
+                        });
+
+                        // Close dropdown when clicking outside
+                        document.addEventListener('click', function (e) {
+                            if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+                                dropdown.classList.add('opacity-0', 'invisible');
+                                dropdown.classList.remove('opacity-100', 'visible');
+                            }
+                        });
+                    });
+                </script>
 
             <!-- Mobile Navigation -->
             <div class="md:hidden flex items-center justify-around py-3 border-t border-gray-800 hidden" id="mobile-nav">
@@ -285,7 +313,9 @@ $conn->close();
                             <li class="flex items-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M5 13l4 4L19 7"/></svg>Duration: <?php echo htmlspecialchars($course['duration']); ?> weeks</li>
                             <li class="flex items-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M5 13l4 4L19 7"/></svg>Status: <?php echo htmlspecialchars($course['status']); ?></li>
                         </ul>
-                        <button class="bg-transparent border border-orange-500 text-orange-500 px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white transition-all">Learn More</button>
+                        <a href="auth.php" class="bg-transparent border border-orange-500 text-orange-500 px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white transition-all inline-block">
+                                <button>Learn More</button>
+                            </a>
                     </div>
                 <?php endforeach; ?>
             </div>

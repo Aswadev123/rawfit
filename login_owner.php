@@ -88,9 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
 
 <div class="bg-gray-800 p-8 rounded-xl w-full max-w-md shadow-lg">
-  <h2 class="text-2xl font-bold text-orange-400 mb-6 text-center">
-    <?= $mode === 'login' ? 'Gym Owner Login' : 'Gym Owner Register'; ?>
-  </h2>
+  <h2 class="text-4xl  px-4 py-2 md:text-5xl font-extrabold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent animate-pulse shadow-lg mb-6 text-center">
+    <?= $mode === 'login' ? 'Gym Login' : 'Gym Register'; ?>
+</h2>
 
   <?php if ($error): ?>
     <p class="mb-4 text-red-400"><?= $error; ?></p>

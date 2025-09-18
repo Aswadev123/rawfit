@@ -94,8 +94,15 @@ $conn->close();
                         </svg>
                         <span>Trainers</span>
                     </a>
-                </div>
-
+                
+                <a href="user_dashboard.php" class="nav-link flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                            <path d="M12 18h.01"/>
+                        </svg>
+                        <span>Gyms</span>
+                    </a>
+                    </div>
                 <!-- User Info -->
                 <div class="relative flex items-center space-x-4">
                     <div class="hidden sm:block text-right">
