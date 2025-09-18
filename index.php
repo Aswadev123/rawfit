@@ -499,7 +499,7 @@ $conn->close();
             });
 
             // Add active class to current section link
-            const activeLinks = document.querySelectorAll(`a[href="${currentHash}"]`);
+            const activeLinks = document.querySelectorAll(a[href="${currentHash}"]);
             activeLinks.forEach(link => {
                 if (link.classList.contains('mobile-nav-link')) {
                     link.classList.add('active', 'text-orange-500');

@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Fallback: If name is empty, fetch from trainerlog
 if (empty($name)) {
-    $sql = "SELECT name FROM trainerlog WHERE id = ?";
+    $sql = "SELECT trainer_id FROM trainerlog WHERE trainer_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $trainer_id);
     $stmt->execute();

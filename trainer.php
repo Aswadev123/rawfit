@@ -53,20 +53,20 @@
 
     // Fetch trainer courses
     $trainers = [];
-    $sql = "SELECT trainer_id, title, description, category, duration, start_date, end_date, image_path, created_at 
+    $sql = "SELECT id, trainer_id, title, description, category, duration, start_date, end_date, image_path, created_at 
             FROM trainer_courses";
     $result = $conn->query($sql);
 
     if ($result) {
         while ($row = $result->fetch_assoc()) {
-            // Simulate trainer name and rating (you might want to join with a trainers table)
-            $trainerName = "Trainer " . $row['trainer_id']; // Placeholder, replace with actual trainer name logic
-            $rating = rand(4, 5); // Random rating between 4 and 5 for demo
-            $availability = (rand(0, 1) ? "Available" : "Unavailable"); // Random availability
-            $price = rand(60, 85); // Random price between $60 and $85
-            $duration = $row['duration'] * 7; // Convert weeks to minutes (approx)
+            $trainerName = "Trainer " . $row['trainer_id'];
+            $rating = rand(4, 5);
+            $availability = (rand(0, 1) ? "Available" : "Unavailable");
+            $price = rand(60, 85);
+            $duration = $row['duration'] * 7;
 
             $trainers[] = [
+                'id' => $row['id'], // Add this line
                 'name' =>  $row['title'],
                 'specialty' => $row['category'],
                 'description' => $row['description'],
@@ -244,10 +244,10 @@
                                 <span class="text-white font-bold text-lg">$<?php echo $trainer['price']; ?>/session</span>
                                 <span class="text-gray-400 text-sm"><?php echo $trainer['duration']; ?> min</span>
                             </div>
-                            <button onclick="bookTrainer('<?php echo htmlspecialchars($trainer['name']); ?>', '<?php echo htmlspecialchars($trainer['specialty']); ?>', <?php echo $trainer['price']; ?>)" 
-                                    class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                                Book Session
-                            </button>
+                         <a href="user_booking.php?course_id=<?php echo $trainer['id']; ?>"
+                        class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block">
+                            View Details
+                        </a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -256,58 +256,6 @@
             </div>
         </div>
     </main>
-
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-gray-800 rounded-xl p-6 w-full max-w-md">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-bold text-white">Book Training Session</h3>
-                <button onclick="closeBookingModal()" class="text-gray-400 hover:text-white">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div>
-                    <p class="text-gray-300"><strong id="modalTrainerName"></strong></p>
-                    <p class="text-orange-400" id="modalTrainerSpecialty"></p>
-                    <p class="text-white font-bold" id="modalTrainerPrice"></p>
-                </div>
-                <div>
-                    <label class="block text-gray-300 font-medium mb-2">Preferred Date</label>
-                    <input type="date" id="sessionDate" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-orange-500">
-                </div>
-                <div>
-                    <label class="block text-gray-300 font-medium mb-2">Preferred Time</label>
-                    <select id="sessionTime" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-orange-500">
-                        <option value="">Select Time</option>
-                        <option value="09:00">9:00 AM</option>
-                        <option value="10:00">10:00 AM</option>
-                        <option value="11:00">11:00 AM</option>
-                        <option value="14:00">2:00 PM</option>
-                        <option value="15:00">3:00 PM</option>
-                        <option value="16:00">4:00 PM</option>
-                        <option value="17:00">5:00 PM</option>
-                        <option value="18:00">6:00 PM</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-300 font-medium mb-2">Notes (Optional)</label>
-                    <textarea id="sessionNotes" rows="3" placeholder="Any specific goals or requirements..." class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
-                </div>
-                <div class="flex space-x-3 pt-4">
-                    <button onclick="closeBookingModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
-                        Cancel
-                    </button>
-                    <button onclick="confirmBooking()" class="flex-1 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-4 rounded-lg transition-all">
-                        Confirm Booking
-                    </button>
-                </div>
-            </div> 
-        </div>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $start_date = $_POST['start_date'] ?? '';
     $end_date = $_POST['end_date'] ?? '';
     $image = $_FILES['image'] ?? null;
+    $document = $_FILES['course_document'] ?? null;
 
     // Basic validation
     $errors = [];
@@ -52,6 +53,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    // Document validation (optional)
+    $doc_name = null;
+    if ($document && $document['error'] != UPLOAD_ERR_NO_FILE) {
+        $allowed_doc_types = [
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'text/plain',
+            'application/vnd.ms-powerpoint',
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+        ];
+        if (!in_array($document['type'], $allowed_doc_types)) {
+            $errors[] = "Only PDF, DOC, DOCX, TXT, PPT, and PPTX files are allowed for documents.";
+        }
+        if ($document['size'] > 5 * 1024 * 1024) {
+            $errors[] = "Document size must be less than 5MB.";
+        }
+    }
+
     if (empty($errors)) {
         // Handle image upload
         $upload_dir = "uploads/";
@@ -59,16 +79,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image_name = uniqid() . '_' . basename($image['name']);
         $target_file = $upload_dir . $image_name;
 
-        if (move_uploaded_file($image['tmp_name'], $target_file)) {
+        // Handle document upload
+        if ($document && $document['error'] == UPLOAD_ERR_OK) {
+            $doc_name = uniqid() . '_' . basename($document['name']);
+            $doc_target = $upload_dir . $doc_name;
+            if (!move_uploaded_file($document['tmp_name'], $doc_target)) {
+                $errors[] = "Failed to upload document.";
+            }
+        }
+
+        if (move_uploaded_file($image['tmp_name'], $target_file) && empty($errors)) {
             // Insert data into database
             $trainer_id = $_SESSION['trainer_id'];
             $created_at = date('Y-m-d H:i:s');
-            $stmt = $pdo->prepare("INSERT INTO trainer_courses (trainer_id, title, description, category, duration, status, start_date, end_date, image_path, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$trainer_id, $title, $description, $category, $duration, $status, $start_date, $end_date, $image_name, $created_at]);
+            $stmt = $pdo->prepare("INSERT INTO trainer_courses (trainer_id, title, description, category, duration, status, start_date, end_date, image_path, created_at, doc_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute([$trainer_id, $title, $description, $category, $duration, $status, $start_date, $end_date, $image_name, $created_at, $doc_name]);
             
-            $message = "Course '$title' added successfully! Image uploaded as $image_name.";
+            $message = "Course '$title' added successfully! Image uploaded as $image_name." . ($doc_name ? " Document uploaded as $doc_name." : "");
         } else {
-            $message = "Failed to upload image.";
+            $message = "Failed to upload image." . (!empty($errors) ? " " . implode(" ", $errors) : "");
         }
     } else {
         $message = implode(" ", $errors);
@@ -115,6 +144,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <span class="text-white font-bold text-xl">Rawfit</span>
                 </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="trainerman.php" class="nav-link flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="manage-courses.php" class="nav-link flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                            <path d="M12 18h.01"/>
+                        </svg>
+                        <span>Course</span>
+                    </a>
+          
+                </div>
+
                 <div class="relative">
                     <a href="logout.php" class="text-sm text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-lg transition-colors">
                         Sign Out
@@ -184,6 +233,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/gif" 
                            class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:outline-none focus:ring-2 focus:ring-primary">
                 </div>
+                  <!-- Document Upload Section -->
+            <div>
+                <label for="course_document" class="block text-sm font-medium text-gray-300 mb-2">Attach course files (PDF, DOCX, etc.)</label>
+                <input type="file" id="course_document" name="course_document"
+                       class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white file:bg-orange-500 file:text-white file:rounded-lg file:px-4 file:py-2 file:border-0 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                       accept=".pdf,.doc,.docx,.txt,.ppt,.pptx">
+                <p class="text-xs text-gray-400 mt-1"> Upload supporting course material (max 5MB).</p>
+            </div>
                 <button type="submit" class="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-primary transition-all">
                     Submit Course
                 </button>

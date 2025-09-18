@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $start_date = $_POST['start_date'] ?? '';
     $end_date = $_POST['end_date'] ?? '';
     $image = $_FILES['image'] ?? null;
+    $document = $_FILES['document'] ?? null;
 
     // Basic validation
     $errors = [];
@@ -79,6 +80,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if ($image['size'] > 5 * 1024 * 1024) { // 5MB limit
             $errors[] = "Image size must be less than 5MB.";
+        }
+    }
+
+    // Document upload handling
+    $doc_name = $course['doc_path'] ?? null;
+
+    if ($document && $document['error'] == UPLOAD_ERR_OK) {
+        $allowed_doc_types = [
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'text/plain',
+            'application/vnd.ms-powerpoint',
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+        ];
+        if (!in_array($document['type'], $allowed_doc_types)) {
+            $errors[] = "Only PDF, DOC, DOCX, TXT, PPT, and PPTX files are allowed for documents.";
+        }
+        if ($document['size'] > 5 * 1024 * 1024) {
+            $errors[] = "Document size must be less than 5MB.";
+        }
+        if (empty($errors)) {
+            $upload_dir = "uploads/";
+            if (!file_exists($upload_dir)) mkdir($upload_dir, 0777, true);
+            $doc_name = uniqid() . '_' . basename($document['name']);
+            $doc_target = $upload_dir . $doc_name;
+            if (!move_uploaded_file($document['tmp_name'], $doc_target)) {
+                $errors[] = "Failed to upload document.";
+            }
         }
     }
 
@@ -102,13 +132,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($errors)) {
             if ($is_edit) {
                 // Update existing course
-                $stmt = $pdo->prepare("UPDATE trainer_courses SET title = ?, description = ?, category = ?, duration = ?, status = ?, start_date = ?, end_date = ?, image_path = ? WHERE id = ? AND trainer_id = ?");
-                $stmt->execute([$title, $description, $category, $duration, $status, $start_date, $end_date, $image_name, $course_id, $trainer_id]);
+                $stmt = $pdo->prepare("UPDATE trainer_courses SET title = ?, description = ?, category = ?, duration = ?, status = ?, start_date = ?, end_date = ?, image_path = ?, doc_path = ? WHERE id = ? AND trainer_id = ?");
+                $stmt->execute([$title, $description, $category, $duration, $status, $start_date, $end_date, $image_name, $doc_name, $course_id, $trainer_id]);
                 $message = "Course '$title' updated successfully!";
             } else {
                 // Insert new course
-                $stmt = $pdo->prepare("INSERT INTO trainer_courses (trainer_id, title, description, category, duration, status, start_date, end_date, image_path, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$trainer_id, $title, $description, $category, $duration, $status, $start_date, $end_date, $image_name, $created_at]);
+                $stmt = $pdo->prepare("INSERT INTO trainer_courses (trainer_id, title, description, category, duration, status, start_date, end_date, image_path, doc_path, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$trainer_id, $title, $description, $category, $duration, $status, $start_date, $end_date, $image_name, $doc_name, $created_at]);
                 $message = "Course '$title' added successfully! Image uploaded as $image_name.";
             }
         } else {
@@ -148,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body class="bg-gray-900 font-inter text-gray-100 min-h-screen">
     <!-- Navigation Header -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
@@ -159,6 +189,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <span class="text-white font-bold text-xl">Rawfit</span>
                 </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="trainerman.php" class="nav-link flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="manage-courses.php" class="nav-link flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                            <path d="M12 18h.01"/>
+                        </svg>
+                        <span>Course</span>
+                    </a>
+          
+                </div>
+
                 <div class="relative">
                     <a href="logout.php" class="text-sm text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-lg transition-colors">
                         Sign Out
@@ -231,7 +281,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/gif" 
                            class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:outline-none focus:ring-2 focus:ring-primary">
                 </div>
-               
+
+                <!-- Display uploaded document if exists -->
+                <?php if ($is_edit && !empty($course['doc_path'])): ?>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300">Current Document</label>
+                        <a href="uploads/<?php echo htmlspecialchars($course['doc_path']); ?>" target="_blank" class="text-primary underline hover:text-secondary">
+                            <?php echo htmlspecialchars(basename($course['doc_path'])); ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Document Upload Section -->
+                <div>
+                    <label for="document" class="block text-sm font-medium text-gray-300">Replace/Upload Document (PDF, DOCX, etc.)</label>
+                    <input type="file" name="document" id="document"
+                           class="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white file:bg-orange-500 file:text-white file:rounded-lg file:px-4 file:py-2 file:border-0 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                           accept=".pdf,.doc,.docx,.txt,.ppt,.pptx">
+                    <p class="text-xs text-gray-400 mt-1">Upload to replace the current document (max 5MB).</p>
+                </div>
                 <div class="flex space-x-2">
                     <button type="submit" name="save" class="flex-1 bg-primary text-white py-2 px-4 rounded-lg hover:bg-orange-600 text-center">
                         <?php echo $is_edit ? 'Update Course' : 'Save Course'; ?>

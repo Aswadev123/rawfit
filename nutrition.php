@@ -514,10 +514,10 @@ $conn->close();
         }
 
         function saveNutritionData() {
-            const age = parseInt(document.getElementById('age').value) || 25;
+            const age = parseInt(document.getElementById('age').value);
             const gender = document.getElementById('gender').value;
-            const weight = parseFloat(document.getElementById('weight').value) || 70;
-            const height = parseInt(document.getElementById('height').value) || 175;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseInt(document.getElementById('height').value);
             const activityLevel = document.getElementById('activityLevel').value;
             const goal = document.getElementById('goal').value;
             const formMessage = document.getElementById('form-message');
@@ -631,12 +631,7 @@ $conn->close();
             
             if (savedFoodLog) {
                 foodLog = JSON.parse(savedFoodLog);
-            } else {
-                foodLog = [
-                    { name: 'Breakfast', calories: 420, protein: 25, carbs: 45, fats: 18 },
-                    { name: 'Lunch', calories: 550, protein: 35, carbs: 60, fats: 22 }
-                ];
-            }
+            } 
             
             window.foodLog = foodLog;
             updateFoodLogDisplay();
