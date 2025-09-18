@@ -13,3 +13,6 @@
 {"foodLog":[{"name":"ttafssdg","calories":12,"protein":121,"carbs":121,"fats":12}]}
 {"foodLog":[{"name":"gtacu","calories":123,"protein":12,"carbs":23,"fats":123}]}
 {"foodLog":[]}
+{"foodLog":[{"name":"Lunch","calories":550,"protein":35,"carbs":60,"fats":22}]}
+{"foodLog":[]}
+{"foodLog":[{"name":"Breakfast","calories":420,"protein":25,"carbs":45,"fats":18},{"name":"Lunch","calories":550,"protein":35,"carbs":60,"fats":22},{"name":"sdftgyhjfsfgsrg","calories":-1,"protein":12,"carbs":14,"fats":199}]}

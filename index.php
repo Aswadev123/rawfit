@@ -99,16 +99,19 @@ $conn->close();
                 </div>
 
                 <!-- Navigation Actions -->
-                <div class="flex items-center space-x-4">
-                    <a href="auth.php" class="text-gray-300 hover:text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">Login</a>
-                    <a href="trainerlogin.php" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Trainer Login</a>
-                    <div class="md:hidden hamburger flex flex-col space-y-1 cursor-pointer" id="hamburger">
-                        <span class="w-6 h-0.5 bg-gray-300"></span>
-                        <span class="w-6 h-0.5 bg-gray-300"></span>
-                        <span class="w-6 h-0.5 bg-gray-300"></span>
-                    </div>
-                </div>
-            </div>
+        <div class="flex items-center space-x-4">
+    <a href="auth.php" class="text-gray-300 hover:text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">Login</a>
+    <a href="trainerlogin.php" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Trainer Login</a>
+    <a href="adminlogin.php" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Admin Login</a>
+    <a href="login_owner.php" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Gym Owner</a>
+
+    <div class="md:hidden hamburger flex flex-col space-y-1 cursor-pointer" id="hamburger">
+        <span class="w-6 h-0.5 bg-gray-300"></span>
+        <span class="w-6 h-0.5 bg-gray-300"></span>
+        <span class="w-6 h-0.5 bg-gray-300"></span>
+    </div>
+</div>
+
 
             <!-- Mobile Navigation -->
             <div class="md:hidden flex items-center justify-around py-3 border-t border-gray-800 hidden" id="mobile-nav">
@@ -330,74 +333,75 @@ $conn->close();
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
-                    <p class="text-gray-400 text-lg mb-6">
-                        Ready to start your fitness journey? Contact us today for a free consultation and gym tour.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Location</h4>
-                                <p class="text-gray-400">123 Fitness Street, Gym City, GC 12345</p>
-                            </div>
+<!-- Contact Section -->
+<section id="contact" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+                <p class="text-gray-400 text-lg mb-6">
+                    Ready to start your fitness journey? Contact us today for a free consultation and gym tour.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Phone</h4>
-                                <p class="text-gray-400">(555) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <polyline points="22,6 12,13 2,6"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Email</h4>
-                                <p class="text-gray-400">info@fitcoregym.com</p>
-                            </div>
+                        <div>
+                            <h4 class="text-white font-semibold">Location</h4>
+                            <p class="text-gray-400">123 Fitness Street, Gym City, GC 12345</p>
                         </div>
                     </div>
-                </div>
-                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
-                    <div class="space-y-4">
-                        <div>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
                         </div>
                         <div>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            <h4 class="text-white font-semibold">Phone</h4>
+                            <p class="text-gray-400">(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
                         </div>
                         <div>
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            <h4 class="text-white font-semibold">Email</h4>
+                            <p class="text-gray-400">info@fitcoregym.com</p>
                         </div>
-                        <div>
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Send Message</button>
                     </div>
                 </div>
             </div>
+
+            <!-- Contact Form -->
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+                <form method="POST" action="contact.php" class="space-y-4">
+                    <div>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+                    <div>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+                    <div>
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+                    <div>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all">Send Message</button>
+                </form>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-gray-800/50 backdrop-blur-sm py-12 border-t border-gray-700">

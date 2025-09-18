@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 
 // Database connection
@@ -92,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // Refresh CSRF
                         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
+                        // Redirect all users to home
                         header("Location: home.php");
                         exit;
                     } else {
@@ -106,7 +107,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 $conn->close();
-?>
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,7 +121,6 @@ $conn->close();
         body { background-color: #000000; }
         #auth { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
         .auth-container { background: #1A1F2E; border-radius: 20px; padding: 40px; width: 100%; max-width: 500px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
-        .auth-logo { font-family: 'Orbitron', sans-serif; font-size: 22px; margin-bottom: 10px; text-align: center; color: #F97316; }
         .auth-title { font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 32px; text-align: center; margin-bottom: 10px; padding: 10px; font-weight: 700; color: #F97316; }
         .auth-subtitle { font-size: 14px; text-align: center; margin-bottom: 30px; color: #666666; }
         label { display: block; margin-bottom: 6px; font-size: 14px; color: #FFFFFF; }
@@ -150,9 +151,9 @@ $conn->close();
                     <label for="email">Email</label>
                     <input type="email" name="email" placeholder="example@gmail.com" required>
                     <label for="phone">Phone</label>
-                    <input type="tel" name="phone" placeholder="1234567890" pattern="[0-9]{10}" maxlength="10" title="Phone number must be exactly 10 digits" required>
+                    <input type="tel" name="phone" placeholder="1234567890" pattern="[0-9]{10}" maxlength="10" required>
                     <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="********" pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}" title="Password must be at least 8 characters and contain at least one uppercase letter, one number, and one special character" required>
+                    <input type="password" name="password" placeholder="********" required>
                     <label for="confirmpassword">Confirm Password</label>
                     <input type="password" name="confirmpassword" placeholder="********" required>
                 <?php else: ?>

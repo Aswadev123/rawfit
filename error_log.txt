@@ -964,3 +964,161 @@ Stack trace:
     [trainer_name] => aswa
 )
 
+[17-Sep-2025 08:46:52 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => a8299e4c8129f9400beb1f5e753e444ab15f5836d9e349867f31e9e04d84df09
+    [trainer_name] => testdfhgh
+    [trainer_email] => ani@gmail.com
+    [trainer_phone] => 7894561237
+    [trainer_password] => Pass@123
+    [confirmpassword] => Pass@123
+)
+
+[17-Sep-2025 08:46:52 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'trainer_phone' in 'field list' in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php:81
+Stack trace:
+#0 C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php(81): mysqli->prepare('INSERT INTO tra...')
+#1 {main}
+  thrown in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php on line 81
+[17-Sep-2025 10:29:06 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => a8299e4c8129f9400beb1f5e753e444ab15f5836d9e349867f31e9e04d84df09
+    [trainer_name] => testdfhgh
+    [trainer_email] => ani@gmail.com
+    [trainer_phone] => 7894561237
+    [trainer_password] => Pass@123
+    [confirmpassword] => Pass@123
+)
+
+[17-Sep-2025 10:29:06 Europe/Berlin] CSRF validation failed. Session token: fb6df9181f4d47ee67b1ef81e6a09f225793e30d616e5d8e4a76dd2e8a40a4f3, Form token: a8299e4c8129f9400beb1f5e753e444ab15f5836d9e349867f31e9e04d84df09
+[17-Sep-2025 10:31:51 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => fb6df9181f4d47ee67b1ef81e6a09f225793e30d616e5d8e4a76dd2e8a40a4f3
+    [trainer_name] => goutham
+    [trainer_email] => goutham@gmail.com
+    [trainer_phone] => 9497795919
+    [trainer_password] => Password123@
+    [confirmpassword] => Password123@
+)
+
+[17-Sep-2025 10:31:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'trainer_phone' in 'field list' in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php:81
+Stack trace:
+#0 C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php(81): mysqli->prepare('INSERT INTO tra...')
+#1 {main}
+  thrown in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php on line 81
+[17-Sep-2025 10:34:40 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => fb6df9181f4d47ee67b1ef81e6a09f225793e30d616e5d8e4a76dd2e8a40a4f3
+    [trainer_name] => goutham
+    [trainer_email] => goutham@gmail.com
+    [trainer_phone] => 9497795919
+    [trainer_password] => Password123@
+    [confirmpassword] => Password123@
+)
+
+[17-Sep-2025 10:35:15 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 0d318029c9f155dc9294bb4c179b8c87a225a466b72e485da01d59443437e75d
+    [trainer_email] => goutham@gmail.com
+    [trainer_password] => Password123@
+)
+
+[17-Sep-2025 10:35:15 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'trainer_password' in 'field list' in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php:96
+Stack trace:
+#0 C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php(96): mysqli->prepare('SELECT trainer_...')
+#1 {main}
+  thrown in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php on line 96
+[17-Sep-2025 10:35:55 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 0d318029c9f155dc9294bb4c179b8c87a225a466b72e485da01d59443437e75d
+    [trainer_email] => goutham@gmail.com
+    [trainer_password] => Password123@
+)
+
+[17-Sep-2025 11:09:15 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 767a59f7d46095dcbddf61c75bfe27bf4b7209e3ad223e94b79e134633523078
+    [trainer_name] => gouth
+    [trainer_email] => gouth@gmail.com
+    [trainer_password] => Password123@
+    [confirmpassword] => Password123@
+)
+
+[17-Sep-2025 11:09:15 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'trainer_password' in 'field list' in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php:71
+Stack trace:
+#0 C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php(71): mysqli->prepare('INSERT INTO tra...')
+#1 {main}
+  thrown in C:\xampp\htdocs\rawfit\rawfit\trainerlogin.php on line 71
+[17-Sep-2025 11:10:28 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 767a59f7d46095dcbddf61c75bfe27bf4b7209e3ad223e94b79e134633523078
+    [trainer_name] => gouth
+    [trainer_email] => gouth@gmail.com
+    [trainer_password] => Password123@
+    [confirmpassword] => Password123@
+)
+
+[17-Sep-2025 11:10:44 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 5040191f5781ccbe55dba1b01531f077e8ab5d3ba3a03ef470f457e4dbfa592a
+    [trainer_name] => gouth
+    [trainer_email] => gouth@gmail.com
+    [trainer_password] => Password123@
+    [confirmpassword] => Password123@
+)
+
+[17-Sep-2025 11:11:02 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 9cf70a0481d2c5cb9c3bff19c1d124600a6b3694ec99d5fca2e37977bb133800
+    [trainer_email] => gouth@gmail.com
+    [trainer_password] => Password123@
+)
+
+[17-Sep-2025 11:12:56 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 70dc841029be6ad789ad4a02d8ffe9a5bc0d79d7ba15c20f892cdea6047ef937
+    [trainer_email] => gouth@gmail.com
+    [trainer_password] => Password123@
+)
+
+[17-Sep-2025 11:15:45 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 91e8d80c5ecfc1d6d80e9004a7f9816d13959c9335d9a84af97f546f49b3982e
+    [trainer_email] => gouth@gmail.com
+    [trainer_password] => Password123@
+)
+
+[17-Sep-2025 15:44:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry 'dev' for key 'username' in C:\xampp\htdocs\rawfit\rawfit\adminlogin.php:84
+Stack trace:
+#0 C:\xampp\htdocs\rawfit\rawfit\adminlogin.php(84): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\rawfit\rawfit\adminlogin.php on line 84
+[17-Sep-2025 16:38:51 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 0fc22a12fa7432d44220127c4066a2af7910b122b60c266eb14bd8e59cd6d5a5
+    [trainer_email] => gout@gmail.com
+    [trainer_password] => Password123@
+)
+
+[17-Sep-2025 16:39:08 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 0fc22a12fa7432d44220127c4066a2af7910b122b60c266eb14bd8e59cd6d5a5
+    [trainer_email] => gout@gmail.com
+    [trainer_password] => Asdfghjkl123@
+)
+
+[17-Sep-2025 16:39:44 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 6358487e6ecf3316d3499e051a5a549d1c55f17f76dc7e6c802590a09ca0002a
+    [trainer_name] => dfg
+    [trainer_email] => dfg@gmail.com
+    [trainer_password] => Password111@
+    [confirmpassword] => Password111@
+)
+
+[17-Sep-2025 16:40:10 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 6d9fc435536327c1dd906a3fc32fd59ea76c654103ca2a4f693bcaa224e2e359
+    [trainer_email] => dfg@gmail.com
+    [trainer_password] => Password111@
+)
+
