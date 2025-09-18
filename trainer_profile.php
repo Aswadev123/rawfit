@@ -128,7 +128,7 @@ $conn->close();
                     </svg>
                     <span class="text-xs">Home</span>
                 </a>
-                <a href="nutrition.php" class="mobile-nav-link flex flex-col items-center space-y-1 px-3 py-2 rounded-lg text-gray-400 hover:text-orange-500">
+                <a href="manage_course.php" class="mobile-nav-link flex flex-col items-center space-y-1 px-3 py-2 rounded-lg text-gray-400 hover:text-orange-500">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
                         <path d="M12 18h.01"/>

@@ -957,10 +957,320 @@ Stack trace:
 [16-Sep-2025 18:56:36 Europe/Berlin] Login successful for aswa@gmail.com. Session: Array
 (
     [last_activity] => 1758041795
-    [csrf_token] => 5678fb0a177cd9ce32b3dc0cec0c0ec031744e48022771cc3890a88366dcdbfc
+    [csrf_token] => 
     [loggedin] => 1
     [trainer_id] => 7
     [trainer_email] => aswa@gmail.com
     [trainer_name] => aswa
+)
+
+[17-Sep-2025 17:14:13 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 7baf9005ede9738538acbc7a93f2e13cf29c3dfbb90b08461aecc81207447353
+    [trainer_email] => aswa@gamil.com
+    [trainer_password] => pass1234
+)
+
+[17-Sep-2025 17:14:13 Europe/Berlin] Login attempt with email: aswa@gamil.com
+[17-Sep-2025 17:14:13 Europe/Berlin] No user found with email: aswa@gamil.com
+[17-Sep-2025 17:14:18 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 7baf9005ede9738538acbc7a93f2e13cf29c3dfbb90b08461aecc81207447353
+    [trainer_email] => aswa@gamil.com
+    [trainer_password] => Pass1234
+)
+
+[17-Sep-2025 17:14:18 Europe/Berlin] CSRF validation failed. Session token: 37cd21f3c8dc8a7d03fa9b9da04f6ed4d1992dab625f061db5e52df32e5eddd3, Form token: 7baf9005ede9738538acbc7a93f2e13cf29c3dfbb90b08461aecc81207447353
+[17-Sep-2025 17:14:38 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 37cd21f3c8dc8a7d03fa9b9da04f6ed4d1992dab625f061db5e52df32e5eddd3
+    [trainer_email] => aswa@gamil.com
+    [trainer_password] => Password123!
+)
+
+[17-Sep-2025 17:14:38 Europe/Berlin] Login attempt with email: aswa@gamil.com
+[17-Sep-2025 17:14:38 Europe/Berlin] No user found with email: aswa@gamil.com
+[17-Sep-2025 17:16:06 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 37cd21f3c8dc8a7d03fa9b9da04f6ed4d1992dab625f061db5e52df32e5eddd3
+    [trainer_email] => ani@gamil.com
+    [trainer_password] => Password123!
+)
+
+[17-Sep-2025 17:16:06 Europe/Berlin] CSRF validation failed. Session token: 678f0dced8a8e32b68ca34fdb6906a96363fe3e49fb438907365044d76b3df06, Form token: 37cd21f3c8dc8a7d03fa9b9da04f6ed4d1992dab625f061db5e52df32e5eddd3
+[17-Sep-2025 17:16:13 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 678f0dced8a8e32b68ca34fdb6906a96363fe3e49fb438907365044d76b3df06
+    [trainer_email] => ani@gamil.com
+    [trainer_password] => Pass1234
+)
+
+[17-Sep-2025 17:16:13 Europe/Berlin] Login attempt with email: ani@gamil.com
+[17-Sep-2025 17:16:13 Europe/Berlin] Stored hash: $2y$10$fKRguXn6XLLby7McVON2zech5/1ZrzQfnS2wjWQVrwecvMiT3.awu
+[17-Sep-2025 17:16:13 Europe/Berlin] Password verification failed for ani@gamil.com. Input: Pass1234
+[17-Sep-2025 17:16:22 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 678f0dced8a8e32b68ca34fdb6906a96363fe3e49fb438907365044d76b3df06
+    [trainer_email] => aswa@gamil.com
+    [trainer_password] => pass1234
+)
+
+[17-Sep-2025 17:16:22 Europe/Berlin] CSRF validation failed. Session token: 8beea264226d989e51feaa9ac85e6dc0a144e5a072afd0eff21b7166292d2a03, Form token: 678f0dced8a8e32b68ca34fdb6906a96363fe3e49fb438907365044d76b3df06
+[17-Sep-2025 17:16:37 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 8beea264226d989e51feaa9ac85e6dc0a144e5a072afd0eff21b7166292d2a03
+    [trainer_email] => aswa@gamil.com
+    [trainer_password] => pass1234
+)
+
+[17-Sep-2025 17:16:37 Europe/Berlin] Login attempt with email: aswa@gamil.com
+[17-Sep-2025 17:16:37 Europe/Berlin] No user found with email: aswa@gamil.com
+[17-Sep-2025 17:17:32 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 8beea264226d989e51feaa9ac85e6dc0a144e5a072afd0eff21b7166292d2a03
+    [trainer_email] => aswa@gamil.com
+    [trainer_password] => Pass1234
+)
+
+[17-Sep-2025 17:17:32 Europe/Berlin] CSRF validation failed. Session token: f07081ea571d579c2576e4de5623d40308535007a57fd82748c6bff14e8d176a, Form token: 8beea264226d989e51feaa9ac85e6dc0a144e5a072afd0eff21b7166292d2a03
+[17-Sep-2025 17:17:49 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => f07081ea571d579c2576e4de5623d40308535007a57fd82748c6bff14e8d176a
+    [trainer_email] => aswa@gamil.com
+    [trainer_password] => Pass1234
+)
+
+[17-Sep-2025 17:17:49 Europe/Berlin] Login attempt with email: aswa@gamil.com
+[17-Sep-2025 17:17:49 Europe/Berlin] No user found with email: aswa@gamil.com
+[17-Sep-2025 17:20:11 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => fc002013d7c62022e00a6da5b0dde0d4fd1f9c69b009cfca517b1854b0b80cfd
+    [trainer_email] => aswa@gmail.com
+    [trainer_password] => Pass1234
+)
+
+[17-Sep-2025 17:20:11 Europe/Berlin] Login attempt with email: aswa@gmail.com
+[17-Sep-2025 17:20:11 Europe/Berlin] Stored hash: $2y$10$h0.68SNuri8wZHY0k7S26Oc0MnmbzQ6koIfShvktEjrxdcL6p56n6
+[17-Sep-2025 17:20:11 Europe/Berlin] Password verification failed for aswa@gmail.com. Input: Pass1234
+[17-Sep-2025 17:20:22 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => fc002013d7c62022e00a6da5b0dde0d4fd1f9c69b009cfca517b1854b0b80cfd
+    [trainer_email] => aswa@gmail.com
+    [trainer_password] => password12@
+)
+
+[17-Sep-2025 17:20:22 Europe/Berlin] CSRF validation failed. Session token: ead314edd3bb0630596c9580d7e21b7d1c095ec70c1a748dcce59c2c3774646c, Form token: fc002013d7c62022e00a6da5b0dde0d4fd1f9c69b009cfca517b1854b0b80cfd
+[17-Sep-2025 17:30:08 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => ead314edd3bb0630596c9580d7e21b7d1c095ec70c1a748dcce59c2c3774646c
+    [trainer_email] => aswa@gmail.com
+    [trainer_password] =>  Pass@123
+)
+
+[17-Sep-2025 17:30:08 Europe/Berlin] Login attempt with email: aswa@gmail.com
+[17-Sep-2025 17:30:08 Europe/Berlin] Stored hash: $2y$10$h0.68SNuri8wZHY0k7S26Oc0MnmbzQ6koIfShvktEjrxdcL6p56n6
+[17-Sep-2025 17:30:08 Europe/Berlin] Password verification failed for aswa@gmail.com. Input:  Pass@123
+[17-Sep-2025 17:34:31 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => ef19e2a02d5cf3d3c0baa336c5fe969aae4771830ef8d25ae7adedd100d482e0
+    [trainer_name] => mini
+    [trainer_email] => mini@gmail.com
+    [trainer_phone] => 7894561239
+    [trainer_password] => Pass@123
+    [confirmpassword] => Pass@123
+)
+
+[17-Sep-2025 17:34:44 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => ef19e2a02d5cf3d3c0baa336c5fe969aae4771830ef8d25ae7adedd100d482e0
+    [trainer_name] => mini
+    [trainer_email] => kundan@gmail.com
+    [trainer_phone] => 7894561239
+    [trainer_password] => Pass@123
+    [confirmpassword] => Pass@123
+)
+
+[17-Sep-2025 17:34:44 Europe/Berlin] CSRF validation failed. Session token: 086fe90855be815af1ddd10b7b53f2fecb3d75b7f1b4be32df4d2f1fd064fd07, Form token: ef19e2a02d5cf3d3c0baa336c5fe969aae4771830ef8d25ae7adedd100d482e0
+[17-Sep-2025 17:34:53 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 086fe90855be815af1ddd10b7b53f2fecb3d75b7f1b4be32df4d2f1fd064fd07
+    [trainer_name] => mini
+    [trainer_email] => kundan@gmail.com
+    [trainer_phone] => 7894561239
+    [trainer_password] => Pass@123
+    [confirmpassword] => Pass@123
+)
+
+[17-Sep-2025 17:35:12 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 60a8ad93a66c5161c3c0dec1bfa17809bfb93a94faf26722cf0ebce479e15cef
+    [trainer_email] => kundan@gmail.com
+    [trainer_password] => Pass@123
+)
+
+[17-Sep-2025 17:35:12 Europe/Berlin] Login attempt with email: kundan@gmail.com
+[17-Sep-2025 17:35:12 Europe/Berlin] Stored hash: $2y$10$ZmffJhtEzUJ2DX6dvPBmkuZGx77eS.sfAgt0vqAP0lxHoF54UQ9P.
+[17-Sep-2025 17:35:12 Europe/Berlin] Login successful for kundan@gmail.com. Session: Array
+(
+    [csrf_token] => c493721df5c405ddf9c6e42d3dfb74310d960b4504d1e03e5ecbbf433a39469d
+    [loggedin] => 1
+    [user_id] => 6
+    [email] => goutham@gmail.com
+    [name] => achi
+    [last_activity] => 1758123312
+    [trainer_id] => 11
+    [trainer_email] => kundan@gmail.com
+    [trainer_name] => mini
+)
+
+[17-Sep-2025 18:55:36 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 4feab69b0d23436b49114414b8c29cb168b7537a25234da434ada157be7c5cb1
+    [trainer_email] => kundan@gamil.com
+    [trainer_password] => Pass@123
+)
+
+[17-Sep-2025 18:55:36 Europe/Berlin] Login attempt with email: kundan@gamil.com
+[17-Sep-2025 18:55:36 Europe/Berlin] No user found with email: kundan@gamil.com
+[17-Sep-2025 18:56:02 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 4feab69b0d23436b49114414b8c29cb168b7537a25234da434ada157be7c5cb1
+    [trainer_email] => kundan@gamil.com
+    [trainer_password] => Pass123@
+)
+
+[17-Sep-2025 18:56:02 Europe/Berlin] CSRF validation failed. Session token: 927ebdf77cf742bf2aed0fcdac8db620788456575167fa9d274875e0dc1999a5, Form token: 4feab69b0d23436b49114414b8c29cb168b7537a25234da434ada157be7c5cb1
+[17-Sep-2025 18:57:48 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 927ebdf77cf742bf2aed0fcdac8db620788456575167fa9d274875e0dc1999a5
+    [trainer_name] => kundi
+    [trainer_email] => kundi@gmail.com
+    [trainer_phone] => 1234567893
+    [trainer_password] => Kundi12@
+    [confirmpassword] => Kundi12@
+)
+
+[17-Sep-2025 18:58:00 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => e01927d4a37b12daab340ba274781a2f48e3dad3525582cce342db05db5356a9
+    [trainer_email] => kundi@gmail.com
+    [trainer_password] => Kundi12@
+)
+
+[17-Sep-2025 18:58:00 Europe/Berlin] Login attempt with email: kundi@gmail.com
+[17-Sep-2025 18:58:00 Europe/Berlin] Stored hash: $2y$10$8CKehDTAFRmVIlS21VB4UO/5RwbPwIp6XZSJvDC5RHfJf5Xok5/1C
+[17-Sep-2025 18:58:00 Europe/Berlin] Login successful for kundi@gmail.com. Session: Array
+(
+    [last_activity] => 1758128280
+    [csrf_token] => d563deada9ebdb0f323ead0b98b944d37d1140966228ac87af543ab04db59fe1
+    [loggedin] => 1
+    [trainer_id] => 12
+    [trainer_email] => kundi@gmail.com
+    [trainer_name] => kundi
+)
+
+[18-Sep-2025 06:31:39 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 54d33bbc8472a14fb9fbe95e6c56fef826e9184265612da4a5c8e303588b34d6
+    [trainer_name] => trainer
+    [trainer_email] => trainer@gmail.com
+    [trainer_phone] => 1234567899
+    [trainer_password] => Trainer12@
+    [confirmpassword] => Trauner12@
+)
+
+[18-Sep-2025 06:32:09 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 54d33bbc8472a14fb9fbe95e6c56fef826e9184265612da4a5c8e303588b34d6
+    [trainer_name] => trainer
+    [trainer_email] => trainer@gmail.com
+    [trainer_phone] => 1234567899
+    [trainer_password] => Aswadev12@
+    [confirmpassword] => Aswadev12@
+)
+
+[18-Sep-2025 06:32:09 Europe/Berlin] CSRF validation failed. Session token: 8a447206b4d763bc21cdb00a68fed1dd668ecbfc70d55d99d00d64da86434769, Form token: 54d33bbc8472a14fb9fbe95e6c56fef826e9184265612da4a5c8e303588b34d6
+[18-Sep-2025 06:32:23 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 8a447206b4d763bc21cdb00a68fed1dd668ecbfc70d55d99d00d64da86434769
+    [trainer_name] => trainer
+    [trainer_email] => trainer@gmail.com
+    [trainer_phone] => 1234567899
+    [trainer_password] => Aswadev12@
+    [confirmpassword] => Aswadev12@
+)
+
+[18-Sep-2025 06:32:23 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'trainer_phone' in 'field list' in A:\programming\xammp\New folder\htdocs\trainerlogin.php:81
+Stack trace:
+#0 A:\programming\xammp\New folder\htdocs\trainerlogin.php(81): mysqli->prepare('INSERT INTO tra...')
+#1 {main}
+  thrown in A:\programming\xammp\New folder\htdocs\trainerlogin.php on line 81
+[18-Sep-2025 06:33:58 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 8a447206b4d763bc21cdb00a68fed1dd668ecbfc70d55d99d00d64da86434769
+    [trainer_name] => trainer
+    [trainer_email] => trainer@gmail.com
+    [trainer_phone] => 1234567899
+    [trainer_password] => Aswadev12@
+    [confirmpassword] => Aswadev12@
+)
+
+[18-Sep-2025 06:33:58 Europe/Berlin] CSRF validation failed. Session token: b2fc82b7fcb694f023d1c042c442a76a48baeaa9b622648866fbd70bd1462b02, Form token: 8a447206b4d763bc21cdb00a68fed1dd668ecbfc70d55d99d00d64da86434769
+[18-Sep-2025 06:34:11 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => b2fc82b7fcb694f023d1c042c442a76a48baeaa9b622648866fbd70bd1462b02
+    [trainer_name] => trainer
+    [trainer_email] => trainer@gmail.com
+    [trainer_phone] => 1234567899
+    [trainer_password] => Aswadev12@
+    [confirmpassword] => Aswadev12@
+)
+
+[18-Sep-2025 06:34:11 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'trainer_password' in 'field list' in A:\programming\xammp\New folder\htdocs\trainerlogin.php:81
+Stack trace:
+#0 A:\programming\xammp\New folder\htdocs\trainerlogin.php(81): mysqli->prepare('INSERT INTO tra...')
+#1 {main}
+  thrown in A:\programming\xammp\New folder\htdocs\trainerlogin.php on line 81
+[18-Sep-2025 06:35:11 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => b2fc82b7fcb694f023d1c042c442a76a48baeaa9b622648866fbd70bd1462b02
+    [trainer_name] => trainer
+    [trainer_email] => trainer@gmail.com
+    [trainer_phone] => 1234567899
+    [trainer_password] => Aswadev12@
+    [confirmpassword] => Aswadev12@
+)
+
+[18-Sep-2025 06:35:11 Europe/Berlin] CSRF validation failed. Session token: d97d723f70b6b7d553d2dc120625fcc1009bc0a35bf9b22cdca2fc3ae4804235, Form token: b2fc82b7fcb694f023d1c042c442a76a48baeaa9b622648866fbd70bd1462b02
+[18-Sep-2025 06:35:24 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => d97d723f70b6b7d553d2dc120625fcc1009bc0a35bf9b22cdca2fc3ae4804235
+    [trainer_name] => trainer
+    [trainer_email] => trainer@gmail.com
+    [trainer_phone] => 1234567899
+    [trainer_password] => Aswadev12@
+    [confirmpassword] => Aswadev12@
+)
+
+[18-Sep-2025 06:35:48 Europe/Berlin] POST data: Array
+(
+    [csrf_token] => 4fb9cfd89809458e197cb9be1c5d90c61b914c815b9a3ad48504dc970711958f
+    [trainer_email] => trainer@gmail.com
+    [trainer_password] => Aswadev12@
+)
+
+[18-Sep-2025 06:35:48 Europe/Berlin] Login attempt with email: trainer@gmail.com
+[18-Sep-2025 06:35:48 Europe/Berlin] Stored hash: $2y$10$qjNgmldnNasMIUs7FKdwWefKIt4yUZgsnw5HQy47PtJVHyNbVBQDe
+[18-Sep-2025 06:35:48 Europe/Berlin] Login successful for trainer@gmail.com. Session: Array
+(
+    [csrf_token] => 9583e88b51d820ddf40a0c06773202131f9fe95245ff5dff0e2c40dd2db626c0
+    [last_activity] => 1758170148
+    [loggedin] => 1
+    [user_id] => 1
+    [email] => aswa@gmail.com
+    [name] => aswa
+    [trainer_id] => 1
+    [trainer_email] => trainer@gmail.com
+    [trainer_name] => trainer
 )
 
