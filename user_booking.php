@@ -254,10 +254,10 @@ $conn->close();
               <h3 class="text-lg font-semibold text-orange-400">Description</h3>
               <p class="text-gray-300"><?php echo nl2br(htmlspecialchars($course['description'])); ?></p>
             </div>
-            <a href="book.php"
-              class="block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300">
-              Get Course
-            </a>
+           <a href="get_course.php?course_id=<?php echo $course['id']; ?>"
+            class="block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300">
+            Get Course
+          </a>
           </div>
         </div>
       </div>

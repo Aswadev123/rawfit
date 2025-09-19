@@ -1,43 +1,43 @@
 <?php
 session_start();
-header('Content-Type: application/json');
 
-// Redirect if not logged in
+// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    echo json_encode(['success' => false, 'message' => 'User not logged in']);
-    exit;
+    echo json_encode(['success' => false, 'message' => 'Not authenticated']);
+    exit();
 }
 
 $user_id = $_SESSION['user_id'];
-$date = date('Y-m-d');
 
 // Database connection
 $conn = new mysqli("localhost", "root", "", "rawfit");
 if ($conn->connect_error) {
     echo json_encode(['success' => false, 'message' => 'Database connection failed']);
-    exit;
+    exit();
 }
 
-// Get food log for today
-$sql = "SELECT meal, calories, protein, carbs, fats FROM food_log WHERE user_id = ? AND date = ?";
+// Fetch today's logs
+$sql = "SELECT food_name as name, calories, protein, carbs, fats 
+        FROM food_log 
+        WHERE user_id = ? AND log_date = CURDATE()
+        ORDER BY created_at ASC";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("is", $user_id, $date);
+$stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
 $foodLog = [];
 while ($row = $result->fetch_assoc()) {
-    $foodLog[] = [
-        'name' => $row['meal'], // 'meal' from DB sent as 'name' to JS
-        'calories' => (int)$row['calories'],
-        'protein' => (int)$row['protein'],
-        'carbs' => (int)$row['carbs'],
-        'fats' => (int)$row['fats']
-    ];
+    // Ensure types match JS expectations
+    $row['calories'] = (int)$row['calories'];
+    $row['protein'] = (float)$row['protein'];
+    $row['carbs'] = (float)$row['carbs'];
+    $row['fats'] = (float)$row['fats'];
+    $foodLog[] = $row;
 }
+
+echo json_encode(['success' => true, 'foodLog' => $foodLog]);
 
 $stmt->close();
 $conn->close();
-
-echo json_encode(['success' => true, 'foodLog' => $foodLog]);
 ?>

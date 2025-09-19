@@ -5,3 +5,4 @@
 {"foodLog":[]}
 {"foodLog":[{"name":"aw\\","calories":22,"protein":233,"carbs":233,"fats":233}]}
 {"foodLog":[{"name":"chicken breast","calories":160,"protein":23,"carbs":0,"fats":150}]}
+{"foodLog":[{"name":"ttafssdg","calories":250,"protein":30,"carbs":15,"fats":8}]}
